@@ -1,0 +1,55 @@
+
+
+
+<table class="table table-striped table-hover table-bordered">
+         <thead>
+                 <tr>
+                     <th>Name</th>
+                     <th>Description</th>
+                    
+                     <th>Price</th>
+                     <th>Stock</th>
+                 </tr>
+         </thead>
+         <tbody>
+         <% @products.each do |product| %>
+                <tr>
+                
+                 <td><%= product.name  %></td>
+                 <td><%=  product.description%></td>
+                 
+                 <td><%=  product.price %></td>
+                 <td><%= product.stock  %></td>
+                 <td><%= link_to "Show", product,class:"btn btn-secondary" %></td>
+                  <td><%= button_to "Destroy", product,method: :delete,class:"btn btn-danger" %></td>
+                
+                 </tr>
+                <% end %>    
+         </tbody>         
+</table>
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+
+<h1>Products</h1>
+
+<div id="products">
+  <% @products.each do |product| %>
+    <%= render product %>
+    <p>
+      <%= link_to "Show this product", product %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New product", new_product_path %> -->
