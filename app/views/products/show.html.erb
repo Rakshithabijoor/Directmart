@@ -12,9 +12,11 @@
   <div><b>Updated_at</b><%= @product.updated_at %></div>
 </div>
 
-<%= link_to "Edit", edit_product_path(@product),class:"btn btn-secondary" %> 
-<%= link_to "Back", product_path,class:"btn btn-dark" %>
 
+<% if user_signed_in? && current_user.admin %>
+<%= link_to "Edit", edit_product_path(@product),class:"btn btn-secondary" %> 
+<%= link_to "Back", products_path,class:"btn btn-dark" %>
+<%  end%>
   
   
 
