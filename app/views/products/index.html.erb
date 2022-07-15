@@ -20,10 +20,13 @@
                  
                  <td><%=  product.price %></td>
                  <td><%= product.stock  %></td>
+                <!--  <td><%= product.image  %></td> -->
                  <td><%= link_to "Show", product,class:"btn btn-secondary" %></td>
                  <% if user_signed_in? && current_user.admin %>
                  
                   <td><%= button_to "Destroy", product,method: :delete,class:"btn btn-danger" %></td>
+                  <% elsif user_signed_in?  %>
+                 <td > <%= link_to "Add", carts_path(:product_id => product), :method => :post ,class:"btn btn-success "%></td>
                 <% end %>
                  </tr>
                 <% end %>    
