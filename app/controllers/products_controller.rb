@@ -19,6 +19,17 @@ class ProductsController < ApplicationController
   def edit
   end
 
+  # def add_to_cart
+  #   # session[:cart] << params[:id]
+  #   # redirect_to root_path
+
+  #   current_cart.add_item(params[:product_id])
+  #      redirect_to carts_path(current_cart.id)
+  # end
+
+  def initialize_session
+    session[:cart] ||=[]
+  end
   # POST /products or /products.json
   def create
     @product = Product.new(product_params)

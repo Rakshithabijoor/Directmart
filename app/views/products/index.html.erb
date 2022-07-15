@@ -26,7 +26,7 @@
                  
                   <td><%= button_to "Destroy", product,method: :delete,class:"btn btn-danger" %></td>
                   <% elsif user_signed_in?  %>
-                 <td > <%= link_to "Add", carts_path(:product_id => product), :method => :post ,class:"btn btn-success "%></td>
+                 <td > <%= link_to "Add", home_cart_path(:product_id => product), :method => :post ,class:"btn btn-success "%></td>
                 <% end %>
                  </tr>
                 <% end %>    
