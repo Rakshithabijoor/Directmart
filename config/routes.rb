@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
+  
   root "home#index"
-  get "home/cart"
+  
   resources :products
   resources :order_items
-  resources :carts
+  resource :cards,only:[:show]
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

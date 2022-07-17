@@ -42,4 +42,7 @@
                 <% end %>    
          </tbody>         
 </table>
-
+<br>
+ <% if user_signed_in? && !current_user.admin %>
+<%= link_to "#{current_order.order_items.size} items with a value of Rs ",cards_path %>
+<% end %>
