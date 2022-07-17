@@ -32,7 +32,7 @@
                  <td><%= product.stock  %></td>
                   <td><%= button_to "Destroy", product,method: :delete,class:"btn btn-danger" %></td>
                   <% elsif user_signed_in?  %>
-                 <td > <%= form_for @order_item do |f|  %>
+                 <td > <%= form_for @order_item, remote: true do |f|  %>
                 <%= f.hidden_field :product_id, :value => product.id %>
                 <%= f.number_field :quantity, :value => 1, :min => 1 %>
                 <td><%= f.submit "Add to Cart" ,class:"btn btn-success"%></td>
@@ -43,6 +43,15 @@
          </tbody>         
 </table>
 <br>
+<div id="card">
+<%= render 'products/card' %>
+</div>
+
+
+
+
+
+<!--
  <% if user_signed_in? && !current_user.admin %>
-<%= link_to "#{current_order.order_items.size} items with a value of Rs ",cards_path %>
-<% end %>
+<%= link_to "#{current_order.order_items.size} items with a value of Rs #{current_order.subtotal}",cards_path %>
+<% end %> -->

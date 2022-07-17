@@ -1,21 +1,43 @@
-<h1>Cards#show</h1>
-<p>Find me in app/views/cards/show.html.erb</p>
+<table class="table table-striped table-hover table-bordered">
+         <thead>
+                 <tr>
+                     <th>Name</th>
+                     
+                    
+                     <th>Price</th>
+                     
+                    
+                     <th>quantity</th>
+                     
+                    <th>subtotal</th>
+                   
+                 </tr>
+           </thead>
+          <tbody>
+                <% @order_items.each do |item| %>
+
+                <tr>
+                <td><%= item.product.name  %></td>
+                 <td><%=  item.product.price%></td>
+                 
+                <%= form_for item do |f| %>
+
+                <%= f.hidden_field :product_id,:value => item.product.id %>
 
 
-<% @order_items.each do |item| %>
-<h3><%= item.product.name %></h3>
-<h3><%= item.product.price %></h3>
-
-
-<%= form_for item do |f| %>
-<%= f.hidden_field :product_id,:value => item.product.id %>
-<%= f.number_field :quantity,:value => item.quantity.to_i %>
-<%= f.submit "Update Card"%>
+  <td><%= f.text_field :quantity ,style:"border:none"%></td>
+<!--<%= f.submit "Update Card"%> -->
 
 
 
 
 <% end %>
-<h2>subtotal:<%= item.total %></h2>
+<td><%= item.total %></td>
+
+</tr>
 
 <% end %>
+</tbody>
+</table>
+
+<center style="float:right"><h3>Total :<%= current_order.subtotal %></h3></center>
