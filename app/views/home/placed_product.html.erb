@@ -1,0 +1,52 @@
+<center><h3>Products Placed</h3><center>
+
+<br>
+
+
+<table class="table table-striped table-hover table-bordered">
+         <thead>
+                 <tr>
+                     <th>order_id</th>
+                     <th>ordered_at</th>
+                     <th>subtotal</th>
+                     <th>ordered_by</th>
+                      <th>send order status</th>
+                    
+                    
+                     <th></th>
+                    
+                 </tr>
+         </thead>
+         <tbody>
+         <% @orders.each do |order| %>
+                <tr>
+                
+                 <%# <td><%= order.subtotal  %>
+                <td> <%= order.id %></td>
+                 <td><%=  order.created_at %></td>
+                 <td><%=  order.subtotal %></td>
+                 <td><%=  current_user.email %></td>
+                 
+               
+                 <td><%= link_to "Message", "#",class:"btn btn-primary"%></td>
+                 </tr>
+                <% end %>    
+                   
+                <tr>
+               <!-- <% @orderitems.each do |orderitem| %>
+                <td><%=  orderitem.id%></td>
+                </tr>
+                <% end %> -->
+         </tbody>         
+</table>
+<br>
+
+
+ 
+
+
+
+<!--
+ <% if user_signed_in? && !current_user.admin %>
+<%= link_to "#{current_order.order_items.size} items with a value of Rs #{current_order.subtotal}",cards_path %>
+<% end %> -->

@@ -3,8 +3,9 @@ class Order < ApplicationRecord
   before_save :set_subtotal
 
 
-  def subtotal
-  order_items.collect{|order_item| order_item.valid? ? order_item.unit_price*order_item.quantity : 0}.sum
+  def subtotal1
+      order_items.collect{|order_item| order_item.valid? ? order_item.unit_price * order_item.quantity : 0}.sum
+      
   end
 
   private
