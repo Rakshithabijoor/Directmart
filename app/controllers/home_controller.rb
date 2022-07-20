@@ -8,6 +8,8 @@ class HomeController < ApplicationController
      @orders = Order.all
      @orderitems = OrderItem.all
      @users=User.all
-   
+
+     
   end 
+
 end

@@ -1,3 +1,4 @@
+ <% if user_signed_in? && current_user.admin  %>
 <center><h3>Products Placed</h3><center>
 
 <br>
@@ -20,15 +21,17 @@
          <tbody>
          <% @orders.each do |order| %>
                 <tr>
-                
+               
+               
                  <%# <td><%= order.subtotal  %>
                 <td> <%= order.id %></td>
                  <td><%=  order.created_at %></td>
                  <td><%=  order.subtotal %></td>
-                <td></td>
-                 
+                 <td><%=  order.user_id %></td>
                
-                 <td><%= link_to "Message", "#",class:"btn btn-primary"%></td>
+                 
+               <td><%= link_to "Ship", "#",class:"btn btn-primary"%></td>
+                 <td><%= link_to "Deliver", "#",class:"btn btn-primary"%></td>
                  </tr>
                 <% end %>    
                    
@@ -40,7 +43,7 @@
          </tbody>         
 </table>
 <br>
-
+<% end %>
 
  
 

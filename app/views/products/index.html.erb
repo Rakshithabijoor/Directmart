@@ -1,7 +1,7 @@
 
 
 
-<table class="table table-striped table-hover table-bordered">
+<table class="table table-striped table-hover table-bordered table-sortable">
          <thead>
                  <tr>
                      <th>Name</th>
@@ -33,9 +33,10 @@
                   <td><%= button_to "Destroy", product,method: :delete,class:"btn btn-danger" %></td>
                   <% elsif user_signed_in?  %>
                  <td > <%= form_for @order_item, remote: true do |f|  %>
-                <%= f.hidden_field :product_id, :value => product.id %>
-                <%= f.number_field :quantity, :value => 1, :min => 1 %>
-                <td><%= f.submit "Add to Cart" ,class:"btn btn-success"%></td>
+                    <%= f.hidden_field :product_id, :value => product.id %>
+                    <%= f.number_field :quantity, :value => 1, :min => 1 %>
+                    <td ><%= f.submit "Add to Cart" ,class:"btn btn-success" %></td>
+                    <%# <%= f.hidden_field :user_id , value: current_user.id%>  
                 <% end %></td>
                 <% end %>
                  </tr>
@@ -46,8 +47,9 @@
 <div id="card">
 <%= render 'products/card' %>
 </div>
+<script>
 
-
+</script>
 
 
 

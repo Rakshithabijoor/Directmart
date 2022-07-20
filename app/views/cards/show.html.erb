@@ -1,3 +1,4 @@
+<%if user_signed_in? && current_user %>
 <table class="table table-striped table-hover table-bordered">
          <thead>
                  <tr>
@@ -9,7 +10,7 @@
                     
                      <th>quantity</th>
                      
-                    <th>subtotal</th>
+                    <th>Total</th>
                     
                    
                  </tr>
@@ -20,13 +21,15 @@
                 <tr>
                 <td><%= item.product.name  %></td>
                  <td><%=  item.product.price%></td>
+                  <td><%=  item.quantity%></td>
                  
                 <%= form_for item do |f| %>
+                
 
                 <%= f.hidden_field :product_id,:value => item.product.id %>
-
-
-  <td><%= f.text_field :quantity ,style:"border:none"%></td>
+                
+            
+  
 <!--<%= f.submit "Update Card"%> -->
 
 
@@ -40,5 +43,11 @@
 <% end %>
 </tbody>
 </table>
+            
 
-<center style="float:right"><h3>Total :<%= current_order.subtotal1 %></h3></center>
+
+<div style="float:right"><p >Delivery charge: 40 Rs.</p>
+<p ><h6>Amount to be Paid :<%= current_order.subtotal1+40 %></h6></p><div>
+<%= link_to "Place order" ,root_path,class:"btn btn-success"%>
+
+<%end %>
