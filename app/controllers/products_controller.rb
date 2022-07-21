@@ -3,7 +3,12 @@ class ProductsController < ApplicationController
  
   # GET /products or /products.json
   def index
-    @products = Product.all.order(price: :desc)
+
+    if params[:sort].blank?
+      @products = Product.order(created_at: :desc)
+    else
+          @products = Product.order(params[:sort])
+    end  
     
     @order_item =current_order.order_items.new
   end
@@ -36,6 +41,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
    #@product.user =current_user.admin
+   
     respond_to do |format|
       if @product.save
         format.html { redirect_to product_url(@product), notice: "Product was successfully created." }
@@ -78,6 +84,6 @@ class ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:name, :description, :price, :stock, :image)
+      params.require(:product).permit(:name, :description, :price, :stock, :image, :user_id)
     end
 end

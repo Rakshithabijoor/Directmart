@@ -1,13 +1,15 @@
 
-
+ <% if user_signed_in?%>
 
 <table class="table table-striped table-hover table-bordered table-sortable">
          <thead>
                  <tr>
-                     <th>Name</th>
-                     <th>Description</th>
+                     
+                    <th><%= link_to "Name", :sort => "name"%></th>
+                     <th><%= link_to "Description", :sort => "description"%></th>
                     
-                     <th>Price</th>
+                     <th><%= link_to "Price", :sort => "price"%></th>
+                     
                      <th></th>
                      <% if user_signed_in? && !current_user.admin%>
                      <th>quantity</th>
@@ -19,6 +21,7 @@
          </thead>
          <tbody>
          <% @products.each do |product| %>
+
                 <tr>
                 
                  <td><%= product.name  %></td>
@@ -26,7 +29,7 @@
                  
                  <td><%=  product.price %></td>
                  
-                 <%# <td><%= product.image  %>
+                 <td><img src="<%= product.image  %>" height="100px" /></td>
                  <td><%= link_to "Show", product,class:"btn btn-secondary" %></td>
                  <% if user_signed_in? && current_user.admin %>
                  <td><%= product.stock  %></td>
@@ -43,6 +46,7 @@
                 <% end %>    
          </tbody>         
 </table>
+
 <br>
 <div id="card">
 <%= render 'products/card' %>
@@ -52,7 +56,7 @@
 </script>
 
 
-
+<% end %>
 <!--
  <% if user_signed_in? && !current_user.admin %>
 <%= link_to "#{current_order.order_items.size} items with a value of Rs #{current_order.subtotal}",cards_path %>

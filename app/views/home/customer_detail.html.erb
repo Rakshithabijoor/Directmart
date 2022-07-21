@@ -1,0 +1,39 @@
+ <% if user_signed_in? && current_user.admin  %>
+
+<center><h3>Customer Details</h3><center>
+
+<br>
+
+
+<table class="table table-striped table-hover table-bordered">
+         <thead>
+                 <tr>
+                     <th>Customer_id</th>
+                     <th>Customer_email</th>
+                      <th>Delivery_Address</th>
+
+                    
+                 </tr>
+         </thead>
+         <tbody>
+         <% @users.each do |user| %>
+                <tr>
+               
+               
+                
+                <td> <%= user.id %></td>
+                 <td><%=  user.email %></td>
+                 <td><%=  user.delivery_address %></td>
+                 
+               
+                 
+               
+                 </tr>
+                <% end %>    
+            
+               
+         </tbody>         
+</table>
+<br>
+<% end %>
+

@@ -10,7 +10,7 @@
                      <th>order_id</th>
                      <th>ordered_at</th>
                      <th>subtotal</th>
-                     <th>ordered_by</th>
+                     <th>User_id</th>
                       <th>send order status</th>
                     
                     
@@ -30,7 +30,9 @@
                  <td><%=  order.user_id %></td>
                
                  
-               <td><%= link_to "Ship", "#",class:"btn btn-primary"%></td>
+               <td>
+               <%= link_to cards_path(order.id), title:'Ship this order', method: :put, remote: :true do %> Ship <% end %>
+                 </td>
                  <td><%= link_to "Deliver", "#",class:"btn btn-primary"%></td>
                  </tr>
                 <% end %>    

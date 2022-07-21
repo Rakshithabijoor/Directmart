@@ -13,3 +13,32 @@
  *= require_tree .
  *= require_self
  */
+
+@import url("https://fonts.googleapis.com/css?family=Quicksand|Rubik");
+#header-index {
+  font-size: 36px;
+  font-family: "Smooch", cursive;
+}
+.grid-system {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  grid-gap: 1px;
+  background-color: white;
+  padding: 1px;
+  overflow: hidden;
+}
+.image-pattern {
+  height: 150px;
+  width: 150px;
+  padding: 3px;
+}
+.para-styling {
+  font-family: "Edu TAS Beginner", cursive;
+}
+.head-styling {
+  color: gray;
+  font-family: "Shadows Into Light", cursive;
+  font-weight: 1800;
+  font-size: 25px;
+}

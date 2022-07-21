@@ -1,5 +1,5 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="index-page">
+<p id="header-index">Welcome to DirectMart !!</p>
 <!--
  <% if current_user %>
 <%= link_to "sign out", destroy_user_session_path,data: {"turbo-method": :delete}, class: "link-secondarysmooth" ,class: "nav-link"%>
@@ -9,4 +9,40 @@
 <% end %> 
 
 <%= link_to 'Products',products_path %>-->
+ 
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+        <img src="https://www.foodnavigator-asia.com/var/wrbm_gb_food_pharma/storage/images/publications/food-beverage-nutrition/foodnavigator-asia.com/article/2019/10/21/pepsico-s-regional-discomfort-analyst-suggests-deeper-reasoning-behind-brand-s-philippines-and-indonesia-cutbacks/10259416-1-eng-GB/PepsiCo-s-regional-discomfort-Analyst-suggests-deeper-reasoning-behind-brand-s-Philippines-and-Indonesia-cutbacks.jpg" class="d-block w-100" alt="pepsi-image">
+    </div>
+    <div class="carousel-item">
+      <img src="https://tastedrecipes.com/wp-content/uploads/2022/04/Lays-Kurkure-Chaat-00.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://www.seekpng.com/png/full/263-2632430_lays-hot-and-sweet-chilli-potato-chips-25g.png" class="d-block w-100" alt="...">
+    </div>
+  </div>
+</div>
+
+
+ 
+<br>
+<br>
+              
+<% @products.each do |product| %>
+<div class="grid-system">
   
+<div class="card " style="width: 20rem">
+  <img src="<%= product.image  %>" class="image-pattern" class="card-img-top" alt="image loading">
+  <div class="card-body">
+    <h5 class="card-title head-styling"><%= product.name  %></h5>
+    <p class="card-text para-styling"> <%=  product.description%>
+                 </p>
+                 
+   
+    <%= link_to "Show", product,class:"btn btn-secondary" %>
+  </div>
+</div>
+<% end %>
+
+  </div>
