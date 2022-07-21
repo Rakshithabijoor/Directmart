@@ -6,6 +6,7 @@ class OrderItemsController < ApplicationController
     @order.save!
     
     session[:order_id]=@order.id
+    
    end
 
 

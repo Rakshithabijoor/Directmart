@@ -43,12 +43,38 @@
 <% end %>
 </tbody>
 </table>
+<% @orders.each do |order| %>
 
-            
- 
+<p>status:</p>
+<%= order.is_delivered %>
+
+
+<% end %>
+
+
 
 <div style="float:right"><p >Delivery charge: 40 Rs.</p>
 <p ><h6>Amount to be Paid :<%= current_order.subtotal1+40 %></h6></p><div>
-<%= link_to "Place order" ,root_path,class:"btn btn-success"%>
 
-<%end %>
+
+
+
+
+
+<button class="btn btn-success" id="demo1" onclick="myfunc()">Place Order</button><br><br>
+<p id="demo2"></p><%end %>
+<script>
+document.getElementById("demo1").addEventListener("click", myFunction);
+
+function myFunction() {
+  document.getElementById("demo1").innerHTML = "Order Placed";
+  document.getElementById("demo1").style.backgroundColor  = "red";
+}
+</script>
+<script>
+function myfunc() {
+  document.getElementById("demo2").innerHTML = "Thank You for Shopping With Us!!!";
+ 
+}
+</script>
+

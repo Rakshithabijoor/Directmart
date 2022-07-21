@@ -42,3 +42,12 @@
   font-weight: 1800;
   font-size: 25px;
 }
+#demo2 {
+  font-size: 23px;
+}
+
+#card {
+  padding: 22px;
+  position: fixed;
+  right: 56px;
+}

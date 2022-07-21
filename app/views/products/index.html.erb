@@ -1,5 +1,15 @@
 
  <% if user_signed_in?%>
+  
+
+
+
+
+  <div id="card">
+<%= render 'products/card' %>
+</div>
+
+
 
 <table class="table table-striped table-hover table-bordered table-sortable">
          <thead>
@@ -9,6 +19,7 @@
                      <th><%= link_to "Description", :sort => "description"%></th>
                     
                      <th><%= link_to "Price", :sort => "price"%></th>
+                     <th>Image</th>
                      
                      <th></th>
                      <% if user_signed_in? && !current_user.admin%>
@@ -38,9 +49,9 @@
                  <td > <%= form_for @order_item, remote: true do |f|  %>
                     <%= f.hidden_field :product_id, :value => product.id %>
                     <%= f.number_field :quantity, :value => 1, :min => 1 %>
-                    <td ><%= f.submit "Add to Cart" ,class:"btn btn-success" %></td>
+                    <td><%= f.submit "Add to Cart"  ,class:"btn btn-success"%></td>
                     <%# <%= f.hidden_field :user_id , value: current_user.id%>  
-                <% end %></td>
+                <% end %>
                 <% end %>
                  </tr>
                 <% end %>    
@@ -48,12 +59,16 @@
 </table>
 
 <br>
-<div id="card">
-<%= render 'products/card' %>
-</div>
-<script>
 
-</script>
+
+<!--<script>
+document.getElementById("demo1").addEventListener("click", myFunction);
+
+function myFunction() {
+  document.getElementById("demo1").innerHTML = "Added";
+  
+}
+</script> -->
 
 
 <% end %>
