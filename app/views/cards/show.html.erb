@@ -11,7 +11,7 @@
                      <th>quantity</th>
                      
                     <th>Total</th>
-                    
+                   
                    
                  </tr>
            </thead>
@@ -22,20 +22,9 @@
                 <td><%= item.product.name  %></td>
                  <td><%=  item.product.price%></td>
                   <td><%=  item.quantity%></td>
-                 
                 <%= form_for item do |f| %>
-                
-
                 <%= f.hidden_field :product_id,:value => item.product.id %>
-                
-            
-  
-<!--<%= f.submit "Update Card"%> -->
-
-
-
-
-<% end %>
+                <% end %>
 <td><%= item.total %></td>
 
 </tr>
@@ -43,13 +32,11 @@
 <% end %>
 </tbody>
 </table>
+<!--
 <% @orders.each do |order| %>
-
 <p>status:</p>
 <%= order.is_delivered %>
-
-
-<% end %>
+<% end %>-->
 
 
 
@@ -61,8 +48,11 @@
 
 
 
+
 <button class="btn btn-success" id="demo1" onclick="myfunc()">Place Order</button><br><br>
 <p id="demo2"></p><%end %>
+
+
 <script>
 document.getElementById("demo1").addEventListener("click", myFunction);
 

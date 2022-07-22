@@ -1,5 +1,9 @@
 class Order < ApplicationRecord
-  has_many :order_items
+  has_many :order_items, class_name: "OrderItem", foreign_key: "order_id"
+  has_many :ships
+  has_many :delivers
+
+  belongs_to :user , class_name: "User", foreign_key: "user_id"
   before_save :set_subtotal
 
 
@@ -13,4 +17,7 @@ class Order < ApplicationRecord
   def set_subtotal
    self[:subtotal] = subtotal1
   end 
+
+
+
 end

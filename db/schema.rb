@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_21_063356) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_22_072819) do
   create_table "carts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "delivers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "order_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_delivers_on_order_id"
+    t.index ["user_id"], name: "index_delivers_on_user_id"
   end
 
   create_table "line_items", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -45,6 +54,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_21_063356) do
     t.boolean "is_shipped", default: false
     t.boolean "is_delivered", default: false
     t.boolean "is_dismissed", default: false
+    t.string "status", default: "null", null: false
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -58,6 +68,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_21_063356) do
     t.string "image"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_products_on_user_id"
+  end
+
+  create_table "ships", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "order_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_ships_on_order_id"
+    t.index ["user_id"], name: "index_ships_on_user_id"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -74,8 +93,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_21_063356) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "delivers", "orders"
+  add_foreign_key "delivers", "users"
   add_foreign_key "line_items", "carts"
   add_foreign_key "line_items", "products"
   add_foreign_key "orders", "users"
   add_foreign_key "products", "users"
+  add_foreign_key "ships", "orders"
+  add_foreign_key "ships", "users"
 end
