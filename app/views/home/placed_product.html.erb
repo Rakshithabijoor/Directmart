@@ -23,7 +23,7 @@
               <td> <%= oitem.order.id %></td>
               <td><%=  oitem.product.id %>/<%=  oitem.product.name %></td>
               <td><%=  oitem.order.user.email %></td>
-              <td><%=  oitem.order.subtotal %></td>
+              <td><%=  oitem.product.price %></td>
               <td><%=  oitem.order.created_at %></td>
               <td >
                 <% if  current_user.ships.find_by(order: oitem.order).nil? %>
@@ -37,14 +37,18 @@
                 <% end %>
               </td>
               <td>
-                <% if  current_user.delivers.find_by(order: oitem.order).nil? %>
-                  <form  action="/delivers" method="post">
-                      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"> 
-                      <input type="hidden" name="deliver[order_id]" value="<%= oitem.order.id %>"> 
-                      <input type="submit"  value="deliver" class="btn btn-warning"> 
-                  </form>
-                <% else %>
-                  Delivered
+               <% if  current_user.ships.find_by(order: oitem.order).nil? %>
+                 <input type="button"  value="deliver" class="btn btn-warning" disabled> 
+               <% else %>
+                  <% if  current_user.delivers.find_by(order: oitem.order).nil? %>
+                    <form  action="/delivers" method="post">
+                        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"> 
+                        <input type="hidden" name="deliver[order_id]" value="<%= oitem.order.id %>"> 
+                        <input type="submit"  value="deliver" class="btn btn-warning"> 
+                    </form>
+                  <% else %>
+                    Delivered
+                  <% end %>
                 <% end %>
               </td>
             </tr>

@@ -7,6 +7,8 @@
                      <th>order_id</th>
                      <th>ordered_at</th>
                      <th>subtotal</th>
+                     <th>user_id</th>
+                     <th>order status</th>
                      
                      
                     
@@ -17,14 +19,15 @@
          </thead>
        <tbody>
 
-            <% @orders.each do |order| %>
-                <tr>
-                    <td> <%= order.id %></td>
-                    <td><%=  order.created_at %></td>
-                    <td> <%= order.subtotal  %></td>
-                   
-                   
-                </tr>
+            <% @orderitems.each do |oitem| %>
+                <% if oitem.order.user.id == current_user.id %>
+                    <tr>
+                        <td> <%= oitem.order.id %></td>
+                        <td><%=  oitem.order.created_at %></td>
+                        <td> <%= oitem.order.subtotal  %></td>
+                        <td> <%= oitem.order.user.id  %></td>
+                    </tr>
+                <% end %>
             <% end %>
         </tbody> 
         </table> 

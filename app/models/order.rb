@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  has_many :order_items, class_name: "OrderItem", foreign_key: "order_id"
+  has_many :order_items #, class_name: "OrderItem", foreign_key: "order_id"
   has_many :ships
   has_many :delivers
 

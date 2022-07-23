@@ -1,6 +1,6 @@
 class OrderItem < ApplicationRecord
-  belongs_to :order, class_name: "Order", foreign_key: "order_id"
-  belongs_to :product
+  belongs_to :order #, class_name: "Order", foreign_key: "order_id"
+  belongs_to :product , class_name: "Product", foreign_key: "product_id"
  before_save :set_unit_price
  before_save :set_total
 

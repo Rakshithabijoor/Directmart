@@ -3,6 +3,9 @@ class HistorysController < ApplicationController
   def orderhistory
     
     @orders = Order.where(user_id: current_user.id)
+    @products = Product.all
+    @orderitems = OrderItem.select('order_id, product_id').distinct
+    @users=User.all
     
   end  
 

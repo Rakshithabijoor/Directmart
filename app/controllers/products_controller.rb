@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy ]
- 
+  #skip_before_action :verify_authenticity_token
+
   # GET /products or /products.json
   def index
 
@@ -25,14 +26,6 @@ class ProductsController < ApplicationController
   # GET /products/1/edit
   def edit
   end
-
-  # def add_to_cart
-  #   # session[:cart] << params[:id]
-  #   # redirect_to root_path
-
-  #   current_cart.add_item(params[:product_id])
-  #      redirect_to carts_path(current_cart.id)
-  # end
 
   def initialize_session
     session[:cart] ||=[]
