@@ -10,7 +10,7 @@ private
 
 
 def ship_params
-  params.require(:ship).permit(:order_id)
+  params.require(:ship).permit(:order_id,:product_id)
 end
 
 

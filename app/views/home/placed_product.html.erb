@@ -26,10 +26,12 @@
               <td><%=  oitem.product.price %></td>
               <td><%=  oitem.order.created_at %></td>
               <td >
-                <% if  current_user.ships.find_by(order: oitem.order).nil? %>
+                <% if  !@ships.exists?(:order_id=> oitem.order.id, :product_id => oitem.product.id) %>
                   <form class="show-btn" action="/ships" method="post">
                       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"> 
                       <input type="hidden" name="ship[order_id]" value="<%= oitem.order.id %>"> 
+                      <input type="hidden" name="ship[product_id]" value="<%= oitem.product.id %>"> 
+
                       <input type="submit"  value="ship" class="btn btn-success"> 
                   </form>
                 <% else %>
@@ -37,13 +39,15 @@
                 <% end %>
               </td>
               <td>
-               <% if  current_user.ships.find_by(order: oitem.order).nil? %>
+               <% if  !@ships.exists?(:order_id=> oitem.order.id, :product_id => oitem.product.id) %>
                  <input type="button"  value="deliver" class="btn btn-warning" disabled> 
                <% else %>
-                  <% if  current_user.delivers.find_by(order: oitem.order).nil? %>
+                  <% if  !@delivers.exists?(:order_id=> oitem.order.id, :product_id => oitem.product.id) %>
                     <form  action="/delivers" method="post">
                         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"> 
-                        <input type="hidden" name="deliver[order_id]" value="<%= oitem.order.id %>"> 
+                        <input type="hidden" name="deliver[order_id]" value="<%= oitem.order.id %>">
+                         <input type="hidden" name="deliver[product_id]" value="<%= oitem.product.id %>"> 
+ 
                         <input type="submit"  value="deliver" class="btn btn-warning"> 
                     </form>
                   <% else %>

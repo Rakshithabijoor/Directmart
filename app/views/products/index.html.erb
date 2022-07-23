@@ -44,7 +44,11 @@
                  <td><%= link_to "Show", product,class:"btn btn-secondary" %></td>
                  <% if user_signed_in? && current_user.admin %>
                  <td><%= product.stock  %></td>
-                  <td><%= button_to "Destroy", product,method: :delete,class:"btn btn-danger" %></td>
+                          <% if product.user.id == current_user.id  %>
+                            <td><%= button_to "Destroy", product,method: :delete,class:"btn btn-danger" %></td>
+                            <% else %>
+                             <td><input type="button" value="Destroy" class="btn btn-danger" disabled/></td>
+                            <% end %>
                   <% elsif user_signed_in?  %>
                  <td > <%= form_for @order_item, remote: true do |f|  %>
                     <%= f.hidden_field :product_id, :value => product.id %>

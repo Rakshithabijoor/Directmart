@@ -4,10 +4,11 @@
 <table class="table table-striped table-hover table-bordered">
          <thead>
                  <tr>
-                     <th>order_id</th>
-                     <th>ordered_at</th>
+                     <th>Order id</th>
+                      <th>Product Id/Product Name</th>
+                     <th>ordered at</th>
                      <th>subtotal</th>
-                     <th>user_id</th>
+                     
                      <th>order status</th>
                      
                      
@@ -23,9 +24,21 @@
                 <% if oitem.order.user.id == current_user.id %>
                     <tr>
                         <td> <%= oitem.order.id %></td>
+                         <td> <%= oitem.product.id %>/<%= oitem.product.name  %></td>
                         <td><%=  oitem.order.created_at %></td>
                         <td> <%= oitem.order.subtotal  %></td>
-                        <td> <%= oitem.order.user.id  %></td>
+                       
+                        <td> 
+                            <% if  @delivers.exists?(:order_id=> oitem.order.id, :product_id => oitem.product.id) %>
+                                <span style="color:Green">Delivered</span>
+                            <% else %>
+                                 <% if  @ships.exists?(:order_id=> oitem.order.id, :product_id => oitem.product.id) %>
+                                    <span style="color:orange">Shipped</span>
+                                <% else %>
+                                    Order Placed
+                                <% end %>
+                            <% end %>
+                        </td>
                     </tr>
                 <% end %>
             <% end %>

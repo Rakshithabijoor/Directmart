@@ -10,6 +10,6 @@ private
 
 
 def deliver_params
-  params.require(:deliver).permit(:order_id)
+  params.require(:deliver).permit(:order_id,:product_id)
 end
 end

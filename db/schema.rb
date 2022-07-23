@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_22_072819) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_23_122033) do
   create_table "carts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -21,7 +21,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_22_072819) do
     t.bigint "order_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "product_id"
     t.index ["order_id"], name: "index_delivers_on_order_id"
+    t.index ["product_id"], name: "index_delivers_on_product_id"
     t.index ["user_id"], name: "index_delivers_on_user_id"
   end
 
@@ -75,7 +77,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_22_072819) do
     t.bigint "order_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "product_id"
     t.index ["order_id"], name: "index_ships_on_order_id"
+    t.index ["product_id"], name: "index_ships_on_product_id"
     t.index ["user_id"], name: "index_ships_on_user_id"
   end
 
@@ -94,11 +98,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_22_072819) do
   end
 
   add_foreign_key "delivers", "orders"
+  add_foreign_key "delivers", "products"
   add_foreign_key "delivers", "users"
   add_foreign_key "line_items", "carts"
   add_foreign_key "line_items", "products"
   add_foreign_key "orders", "users"
   add_foreign_key "products", "users"
   add_foreign_key "ships", "orders"
+  add_foreign_key "ships", "products"
   add_foreign_key "ships", "users"
 end

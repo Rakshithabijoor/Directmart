@@ -6,7 +6,8 @@ class HistorysController < ApplicationController
     @products = Product.all
     @orderitems = OrderItem.select('order_id, product_id').distinct
     @users=User.all
-    
+    @ships=Ship.all
+    @delivers=Deliver.all
   end  
 
 
