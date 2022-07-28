@@ -1,18 +1,18 @@
 
-
-<div class="jumbotron">
-<h6 class="display-4"><small>Id:&nbsp;<%= @product.id %></small></h6>
-  <h1 class="display-4"> <%= @product.name %></h1>
-  <p class="lead"> <%= @product.description %></p>
-   <img src="<%= @product.image %>" height="300px" />
+<center>
+<div class="jumbotron jumnew">
+<h6 class="display-4 jumhead"><small>Id:&nbsp;<%= @product.id %></small></h6>
+  <h1 class="display-4 jumfont"> <%= @product.name %></h1>
+  <p class="lead jumdesc"> <%= @product.description %></p>
+   <img class="jumimg" src="<%= @product.image %>"  />
    
             
   <hr class="my-4">
  
  <span> <b>Price:</b> <%= @product.price %>.00</span>&nbsp;&nbsp;
-  <span> <b>Stock:</b> <%= @product.stock %></span>
+  
   <div><b>Added_at:</b><%= @product.created_at %></div>
-  <div><b>Updated_at</b><%= @product.updated_at %></div>
+  
 </div>
 
 
@@ -21,7 +21,7 @@
 <%= link_to "Back", products_path,class:"btn btn-dark" %>
 <%  end%>
   
-  
+ </center> 
 
 
 

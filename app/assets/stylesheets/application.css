@@ -13,11 +13,33 @@
  *= require_tree .
  *= require_self
  */
+body {
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+table,
+th,
+td,
+tr {
+  color: white;
+}
 
 @import url("https://fonts.googleapis.com/css?family=Quicksand|Rubik");
 #header-index {
   font-size: 36px;
   font-family: "Smooch", cursive;
+  animation-name: example;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+@keyframes example {
+  from {
+    font-family: "Edu VIC WA NT Beginner", cursive;
+  }
+  to {
+    font-family: "Dancing Script", cursive;
+    font-size: 23px;
+  }
 }
 .grid-system {
   display: grid;
@@ -50,4 +72,36 @@
   padding: 22px;
   position: fixed;
   right: 56px;
+}
+.jumnew {
+  color: black;
+}
+.jumfont {
+  font-family: "Shadows Into Light", cursive;
+}
+.jumhead {
+  font-size: 23px;
+}
+.jumimg {
+  height: 300px;
+  transition: width 2s, height 4s;
+}
+.jumimg:hover {
+  width: 600px;
+  height: 600px;
+}
+.jumdesc {
+  font-family: "Shadows Into Light", cursive;
+  animation-name: example1;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+@keyframes example1 {
+  from {
+    color: black;
+  }
+  to {
+    color: red;
+    font-size: 2rem;
+  }
 }

@@ -1,0 +1,24 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "products") do |sheet|
+ct=0
+  sheet.add_row ["Product ID", "Product Name", "Total Quantity", "Unit Price", "Total Price"]
+  @ps.each do |p|
+    if p.user.id == current_user.id
+      @os.each do |o|
+        if o.product.id == p.id
+          @tot = @tot + o.quantity
+        end
+      end
+      sheet.add_row [p.id, p.name, @tot, p.price, p.price*@tot ]
+      ct=ct+1
+      @tot = 0
+    end
+  end
+  ct=ct+1
+  start_col="E2:E#{ct.to_s}"
+  label_col="B2:B#{ct.to_s}"
+  sheet.add_chart(Axlsx::BarChart, :start_at =>[0,15], :end_at => [20,50], :title => "Monthly Pricing") do |chart|
+    chart.add_series :data => sheet[start_col], :labels => sheet[label_col],  :colors => ['FF0000', '00FF00', '0000FF','000000']
+  end
+end

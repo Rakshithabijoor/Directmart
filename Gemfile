@@ -65,11 +65,10 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 
-  # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
-  # gem "rack-mini-profiler"
-
-  # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
-  # gem "spring"
+  gem 'rubyzip', '>= 1.2.1'
+  gem 'axlsx', git: 'https://github.com/randym/axlsx.git', ref: 'c8ac844'
+  gem 'axlsx_rails'
+  
 end
 
 group :test do

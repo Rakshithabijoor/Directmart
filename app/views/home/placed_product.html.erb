@@ -10,7 +10,7 @@
                      <th>order_id</th>
                      <th>Product ID/Name</th>
                      <th>User_email</th>
-                     <th>subtotal</th>
+                     <th>Price</th>
                      <th>ordered_at</th>
                       <th colspan="2">send order status</th>
                      <th></th>
@@ -25,6 +25,7 @@
               <td><%=  oitem.order.user.email %></td>
               <td><%=  oitem.product.price %></td>
               <td><%=  oitem.order.created_at %></td>
+              
               <td >
                 <% if  !@ships.exists?(:order_id=> oitem.order.id, :product_id => oitem.product.id) %>
                   <form class="show-btn" action="/ships" method="post">
@@ -58,45 +59,10 @@
             </tr>
           <% end %>
          <% end %>
-        <!-- 
-         <tr><td></td></tr>
-         <tr><td></td></tr>
-         <tr><td></td></tr>
-         <tr><td></td></tr>
-         <tr><td></td></tr>
-         <% @orders.each do |order| %>
-          <tr>
-            <td> <%= order.id %></td>
-            <td><%=  order.created_at %></td>
-            <td><%=  order.subtotal %></td>
-            <td><%=  order.user.email %></td>
-            <td><%=  order.user.email %></td>
-            <td >
-              <% if  current_user.ships.find_by(order: order).nil? %>
-                <form class="show-btn" action="/ships" method="post">
-                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"> 
-                    <input type="hidden" name="ship[order_id]" value="<%= order.id %>"> 
-                    <input type="submit"  value="ship" class="btn btn-success"> 
-                </form>
-              <% else %>
-                Shipped
-              <% end %>
-            </td>
-            <td>
-              <% if  current_user.delivers.find_by(order: order).nil? %>
-                <form  action="/delivers" method="post">
-                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"> 
-                    <input type="hidden" name="deliver[order_id]" value="<%= order.id %>"> 
-                    <input type="submit"  value="deliver" class="btn btn-warning"> 
-                </form>
-              <% else %>
-                Delivered
-              <% end %>
-            </td>
-            </tr> 
-          <% end %> -->
         </tbody>         
 </table>
+
+
 <br>
 <% end %>
 

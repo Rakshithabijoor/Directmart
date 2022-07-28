@@ -1,5 +1,6 @@
 class OrderItemsController < ApplicationController
 
+    
 
 
    def create
@@ -19,6 +20,7 @@ def update
     @order_item.update_attribute(order_params)
     redirect_to root_path
 end
+
 
 
 def destroy

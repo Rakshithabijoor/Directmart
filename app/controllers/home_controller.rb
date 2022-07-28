@@ -9,7 +9,6 @@ class HomeController < ApplicationController
       def placed_product
         @products = Product.all
         @orderitems = OrderItem.select('order_id, product_id').distinct
-        #@orderitems = OrderItem.all
         @orders = Order.all
         @users=User.all
         @ships=Ship.all
