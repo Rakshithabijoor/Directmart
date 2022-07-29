@@ -31,6 +31,7 @@
                         <td> 
                             <% if  @delivers.exists?(:order_id=> oitem.order.id, :product_id => oitem.product.id) %>
                                 <span style="color:Green">Delivered</span>
+                                 <button class="btn btn-success"><a href="mailto:bijoorarts@gmail.com?Subject=My%Feedback" method="post" enctype="text/plain">Feedback</a></button>
                             <% else %>
                                  <% if  @ships.exists?(:order_id=> oitem.order.id, :product_id => oitem.product.id) %>
                                     <span style="color:orange">Shipped</span>
@@ -39,6 +40,9 @@
                                 <% end %>
                             <% end %>
                         </td>
+                        <td>
+                       
+                         </td>
                     </tr>
                 <% end %>
             <% end %>

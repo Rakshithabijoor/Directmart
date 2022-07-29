@@ -1,1 +1,8 @@
-<%= link_to "#{current_order.order_items.size} items with a value of Rs #{current_order.subtotal1}",cards_path %>
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+ <div class="shoppingmart">
+ <% if user_signed_in? && !current_user.admin %>
+<span class="material-symbols-outlined">
+shopping_cart
+</span><p class="shoppingmart_val"><%= link_to "#{current_order.order_items.size}",cards_path %></p>
+<% end %>
+</div>

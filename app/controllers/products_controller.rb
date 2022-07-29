@@ -1,8 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy ]
-  #skip_before_action :verify_authenticity_token
 
-  # GET /products or /products.json
   def index
     if params[:sort].blank?
       @products = Product.order(created_at: :desc)
@@ -10,16 +8,13 @@ class ProductsController < ApplicationController
       @products = Product.order(params[:sort])
     end  
     @order_item =current_order.order_items.new
+    @ps=Product.all
     
-    #@ps = OrderItem.find_by_sql("select product_id as col1,name as col2,sum(quantity) as col3,products.price as col4,sum(quantity)*products.price as col5 from order_items join products on products.id = order_items.product_id group by product_id order by product_id;
-    #")
-
-   @ps=Product.all
-   start_date="2022-07-01"
-    end_date="2022-07-31"
+    start_date="#{params[:q] }-01"
+    end_date="#{params[:q] }-31"
     sql="select * from order_items where cast(created_at as date) between ? and ?", start_date, end_date
     @os = OrderItem.find_by_sql(sql)
-   @tot=0
+    @tot=0
 
 
 
