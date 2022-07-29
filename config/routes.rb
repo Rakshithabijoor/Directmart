@@ -4,9 +4,11 @@ Rails.application.routes.draw do
   get "home/placed_product"
   get "home/customer_detail"
   get "historys/orderhistory"
+ 
   resources :products
   resources :order_items
   resources :ships,only:[:create]
+  resources :feedbacks,only:[:create,:new]
   resources :delivers,only:[:create]
   resource :cards,only:[:show]
   devise_for :users

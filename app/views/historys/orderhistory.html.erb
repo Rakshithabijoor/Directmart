@@ -10,7 +10,7 @@
                      <th>subtotal</th>
                      
                      <th>order status</th>
-                     
+                      <th>Feedback</th>
                      
                     
                     
@@ -31,18 +31,21 @@
                         <td> 
                             <% if  @delivers.exists?(:order_id=> oitem.order.id, :product_id => oitem.product.id) %>
                                 <span style="color:Green">Delivered</span>
-                                 <button class="btn btn-success"><a href="mailto:bijoorarts@gmail.com?Subject=My%Feedback" method="post" enctype="text/plain">Feedback</a></button>
+                                 &nbsp; <td>
+                           <button class="btn btn-default rak9"><%= link_to "Feedback",  new_feedback_path(:id => oitem.product.id), method: :post,class:"btn btn-default btn-sm rak9" %></button></td>
                             <% else %>
                                  <% if  @ships.exists?(:order_id=> oitem.order.id, :product_id => oitem.product.id) %>
                                     <span style="color:orange">Shipped</span>
+                                  
                                 <% else %>
                                     Order Placed
+                                    
                                 <% end %>
+                                <td>  <input type="button" class="btn btn-default rak9" value="Feedback" disabled></td>
                             <% end %>
                         </td>
-                        <td>
                        
-                         </td>
+                         
                     </tr>
                 <% end %>
             <% end %>

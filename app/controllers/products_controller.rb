@@ -30,6 +30,7 @@ class ProductsController < ApplicationController
 
   # GET /products/1 or /products/1.json
   def show
+    @feedback=Feedback.where(product_id: params[:id])
   end
 
   # GET /products/new

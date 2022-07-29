@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  product: one
+  user: one
+  feedback: MyString
+  rating: 1
+
+two:
+  product: two
+  user: two
+  feedback: MyString
+  rating: 1

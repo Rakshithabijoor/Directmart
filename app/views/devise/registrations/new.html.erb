@@ -1,36 +1,71 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control" %>
-  </div><br>
+<style>
+.navbar{
+visibility:hidden;
+}
+</style>
 
 
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %>
-    <%= f.password_field :password, autocomplete: "new-password",class:"form-control" %>
-  </div><br>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" ,class:"form-control"%>
-  </div><br>
-  <div class="field">
-    <%= f.label :Address %><br />
-    <%= f.text_field :delivery_address, class:"form-control" %>
-  </div><br>
+     <div id="div3">
+        <div id="div1">
+            <nav id=div12><i class="far fa-circle">&nbsp;</i>DirectMart</nav><div id=div11>
+              Welcome ,
+              <p id="div10">Sign Up to join us &nbsp;<i class="fas fa-arrow-right"></i></p><br>
+         <hr id="div14">
+         <br>
+         <p id="div15">Already have an account &nbsp;<i class="fas fa-arrow-right"></i><%= render "devise/shared/links" %>
+        </div>
+        </div>
+        <div id="div2">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+         <%= render "devise/shared/error_messages", resource: resource %>
+            <form id="div6">
+                
+                <div class="field" >
+                <%= f.label :email %><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control" %>
+                </div><br>
+                <div class="field">
+                <%= f.label :password %>
+                <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %>
+                <%= f.password_field :password, autocomplete: "new-password",class:"form-control" %>
+              </div><br>
 
-  <div class="actions">
-    <%= f.submit "Sign up" ,class:"btn btn-secondary" %>
-  </div>
-<% end %>
+                <div class="field">
+                  <%= f.label :password_confirmation %><br />
+                  <%= f.password_field :password_confirmation, autocomplete: "new-password" ,class:"form-control"%>
+                </div><br>
+                  <div class="field">
+                    <%= f.label :Address %><br />
+                    <%= f.text_field :delivery_address, class:"form-control" %>
+                  </div><br>
 
-<%= render "devise/shared/links" %>
+                  <div class="actions">
+                    <%= f.submit "Sign up" ,class:"btn btn-default rak9" %>
+                  </div>
+                    <% end %>
+
+     
+
+                
+                
+                <hr width="423px">
+                <div id=div8>
+                    Connect with Social Media
+                </div>
+                <div id=div5>
+                    <button id=div7><i class="fab fa-twitter"></i>&nbsp;Sign up with Twitter</button>
+                </div>
+                <div id=div5>
+                    <button id=div7><i class="fab fa-facebook"></i>&nbsp;Sign up with Facebook</button>
+                </div>
+            </form>
+            <br>
+
+        </div>
+    </div>
+</body>
+<script src="https://kit.fontawesome.com/35d4c4540b.js" crossorigin="anonymous"></script>

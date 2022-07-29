@@ -1,12 +1,36 @@
-<h2>Log in</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { data: { turbo: false} } ) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class:"form-control"%>
-  </div><br>
+<style>
+.navbar{
+visibility:hidden;
+}
+</style>
 
-  <div class="field form-group">
+
+<div id="div3">
+
+        <div id="div1">
+            <nav id=div12><i class="far fa-circle">&nbsp;</i>DirectMart</nav>
+            <div id=div11>
+                Welcome Back,
+                <p id="div10">Sign in to continue access pages &nbsp;<i class="fas fa-arrow-right"></i></p><br>
+                <hr id="div14">
+                <br>
+                <p id="div15">Don't have an account ?&nbsp;<i class="fas fa-arrow-right"></i><%= render "devise/shared/links" %>
+                </p>
+            </div>
+        </div>
+        <div id="div2">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { data: { turbo: false} } ) do |f| %>
+        <br><br>
+            <form id="div6">
+                <div class=div13>
+                  
+                   
+                  <div class="field">
+                    <%= f.label :email %><br />
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class:"form-control"%>
+                  </div><br>
+                  <div class="field form-group">
     <%= f.label :password %><br />
     <%= f.password_field :password, autocomplete: "current-password",class:"form-control" %>
   </div>
@@ -19,12 +43,30 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in",class:"btn btn-success" %>
+    <%= f.submit "Log in",class:"btn btn-default rak9" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
 
+                    
+                    <hr width="423px">
+                    <div id=div8>
+                        Connect with Social Media
+                    </div>
+                    <div id=div5>
+                        <button id=div7><i class="fab fa-twitter"></i>&nbsp;Sign in with Twitter</button>
+                    </div>
+                    <div id=div5>
+                        <button id=div7><i class="fab fa-facebook"></i>&nbsp;Sign in with Facebook</button>
+                    </div>
+                </div>
+            </form>
+            <br>
+
+        </div>
+    </div>
+</body>
+<script src="https://kit.fontawesome.com/35d4c4540b.js" crossorigin="anonymous"></script>
 
 
 

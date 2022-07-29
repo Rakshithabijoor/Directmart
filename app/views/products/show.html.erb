@@ -21,20 +21,21 @@
 <%= link_to "Back", products_path,class:"btn btn-dark" %>
 <%  end%>
   
+
+
+
  </center> 
+ <h3>Feedbacks</h3>
+ <hr>
+<% @feedback.each do |feedback| %>
+<div class="alert alert-secondary rak20" role="alert">
+<%= feedback.feedback %>
+</div>
 
 
 
 
+<% end %>
 
 
 
-<!--
-<%= render @product %>
-
-<div>
-  <%= link_to "Edit this product", edit_product_path(@product) %> |
-  <%= link_to "Back to products", products_path %>
-
-  <%= button_to "Destroy this product", @product, method: :delete %>
-</div> -->

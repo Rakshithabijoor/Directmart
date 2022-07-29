@@ -43,8 +43,8 @@
                  
                  <td><%=  product.price %></td>
                  
-                 <td><img src="<%= product.image  %>" height="100px" /></td>
-                 <td><%= link_to "Show", product,class:"btn btn-secondary" %></td>
+                 <td><img class="image_resize"src="<%= product.image  %>" height="100px" /></td>
+                 <td><%= link_to "Show", product,class:"btn btn-default rak15" %></td>
                  <% if user_signed_in? && current_user.admin %>
                  <td><%= product.stock  %></td>
                           <% if product.user.id == current_user.id  %>
@@ -56,7 +56,7 @@
                  <td > <%= form_for @order_item, remote: true do |f|  %>
                     <%= f.hidden_field :product_id, :value => product.id %>
                     <%= f.number_field :quantity, :value => 1, :min => 1 %>
-                    <td><%= f.submit "Add to Cart"  ,class:"btn btn-success"%></td>
+                    <td><%= f.submit "Add to Cart"  ,class:"btn btn-default rak9"%></td>
                 <% end %>
                 <% end %>
                  </tr>
@@ -65,3 +65,24 @@
 </table>
 <br>
 <% end %>
+
+<!--
+
+
+
+<% @products.each do |product| %>
+<div class="grid-system ">
+  
+<div class="card grid13" style="width:17rem;border:1px solid #5f2b19">
+  <img src="<%= product.image  %>" class="image-pattern" class="card-img-top" alt="image loading">
+  <div class="card-body">
+    <h5 class="card-title head-styling"><%= product.name  %></h5>
+    
+                 
+   
+    <%= link_to "Show", product,class:"btn btn-default rak9" %>
+  </div>
+</div>
+<% end %>
+
+  </div>-->

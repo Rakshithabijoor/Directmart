@@ -182,10 +182,15 @@ tr {
   background-color: #5f2b19;
   color: white;
 }
+
 .rak13 {
   font-family: "Smooch", cursive;
   color: #c39f91;
   background-color: #5f2b198d;
+}
+.rak15 {
+  background-color: #c39f91;
+  color: #5f2b19;
 }
 
 .grid13 {
@@ -193,4 +198,99 @@ tr {
 }
 .grid13:hover {
   opacity: 0.1;
+}
+
+#div1 {
+  float: left;
+  border-radius: 25px;
+  height: 626px;
+  width: 650px;
+  position: absolute;
+  right: 850px;
+  background-color: #5f2b19;
+  text-align: center;
+  font-size: 45px;
+  color: white;
+}
+#div10 {
+  font-size: 24px;
+  position: absolute;
+  top: 84px;
+  left: 55px;
+}
+#div12 {
+  font-size: 23px;
+  position: absolute;
+  left: 56px;
+  top: 67px;
+}
+
+#div11 {
+  position: absolute;
+  top: 234px;
+  left: 45px;
+  font-size: 67px;
+  font-family: "Pacifico", cursive;
+}
+#div2 {
+  float: right;
+}
+#div3 {
+  margin: 60px;
+}
+#div5 {
+  text-align: center;
+  padding: 5px;
+}
+#div4 {
+  font-size: 12px;
+  border-radius: 14px;
+  height: 32px;
+  width: 332px;
+  background-color: rgba(169, 169, 169, 0.363);
+}
+#div6 {
+  height: 526px;
+  width: 600px;
+  background-color: white;
+  position: absolute;
+  top: 55px;
+  left: 700px;
+  border-radius: 67px;
+}
+#div7 {
+  font-size: 20px;
+  border: 1px solid #5f2b19;
+  border-radius: 5px;
+  background-color: #5f2b19;
+  color: white;
+  margin: 13px;
+  height: 42px;
+  width: 332px;
+}
+#div8 {
+  font-size: 15px;
+  text-align: center;
+}
+#div9 {
+  text-align: center;
+}
+#div14 {
+  width: 389px;
+  position: absolute;
+  top: 167px;
+}
+#div15 {
+  font-size: 13px;
+  font-family: sans-serif;
+}
+.image_resize {
+  height: 100px;
+}
+.image_resize:hover {
+  height: 200px;
+}
+.rak20 {
+  color: #5f2b19;
+  border: 1px solid #5f2b19;
 }
